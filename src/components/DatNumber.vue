@@ -36,11 +36,11 @@ export default {
     const maxValue = computed(() => Math.max(props.min, props.max))
     const hasSlider = computed(() => Number.isFinite(minValue.value) && Number.isFinite(maxValue.value) && props.showSlider)
     const stepValue = computed(() => {
-      if (!props.stepValue) {
+      if (!props.step) {
         const val = maxValue.value - minValue.value
         return (10 ** Math.floor(Math.log(Math.abs(val)) / Math.LN10)) / 10
       } else {
-        return props.stepValue
+        return props.step
       }
     })
     const sanitizeNumber = number => {
@@ -52,7 +52,7 @@ export default {
         if (step && Number.isFinite(step)) {
           safeNumber = Math.round(safeNumber / step) * step
         }
-        emit('update:modelValue', safeNumber)
+        emit('update:modelValue', parseFloat(safeNumber.toPrecision(15)))
       }
     }
 

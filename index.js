@@ -1,1 +1,8 @@
 export { default as DatBoolean } from './src/components/DatBoolean.vue'
+export { default as DatButton } from './src/components/DatButton.vue'
+export { default as DatColor } from './src/components/DatColor.vue'
+export { default as DatFolder } from './src/components/DatFolder.vue'
+export { default as DatGui } from './src/components/DatGui.vue'
+export { default as DatNumber } from './src/components/DatNumber.vue'
+export { default as DatSelect } from './src/components/DatSelect.vue'
+export { default as DatString } from './src/components/DatString.vue'

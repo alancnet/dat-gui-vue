@@ -20,7 +20,7 @@ export default {
 
   setup (props, { emit }) {
     const value = computed(() => typeof props.modelValue === 'string' ? parseFloat(props.modelValue) : props.modelValue)
-    const bgWidth = computed(() => Math.min(props.max, Math.max(props.min, value.value - props.min * 100 / (props.max - props.min))))
+    const bgWidth = computed(() => 100 * (Math.min(props.max, Math.max(props.min, value.value)) - props.min) / (props.max - props.min))
     const slider = ref(null)
 
     const updateState = (ev) => {
@@ -60,9 +60,10 @@ export default {
 </script>
 
 <template>
-  <span
+  <div
     ref="slider"
     class="slider"
+    style="width: 100%;"
     :style="{'background-size': `${bgWidth}% 100%`}"
     @mousedown="onMouseDown"
   />
