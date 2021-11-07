@@ -1,18 +1,73 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+import DatGui from './components/DatGui.vue'
+import DatBoolean from './components/DatBoolean.vue'
+import DatButton from './components/DatButton.vue'
+import DatColor from './components/DatColor.vue'
+import DatFolder from './components/DatFolder.vue'
+import DatNumber from './components/DatNumber.vue'
+import DatSelect from './components/DatSelect.vue'
+import DatString from './components/DatString.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    DatGui,
+    DatBoolean,
+    DatButton,
+    DatColor,
+    DatFolder,
+    DatNumber,
+    DatSelect,
+    DatString
+  },
+  setup () {
+    const open = ref(true)
+    const someBool = ref(true)
+    const clickCount = ref(0)
+    const color = ref('#00ff00')
+    const folderOpen = ref(false)
+    const someNumber = ref(50)
+    const anotherNumber = ref(65535)
+    const someChoice = ref('Leonardo')
+    const ninjaTurtles = ['Donatello', 'Leonardo', 'Michaelangelo', 'Raphael']
+    const someString = ref('Hello World')
+
+    return {
+      open,
+      someBool,
+      clickCount,
+      color,
+      folderOpen,
+      someNumber,
+      anotherNumber,
+      someChoice,
+      ninjaTurtles,
+      someString
+    }
   }
 }
 </script>
+
+<template>
+  <img alt="Vue logo" src="./assets/logo.png">
+  <pre>{{({open, someBool, clickCount, color, folderOpen, someNumber, anotherNumber, someChoice, someString})}}</pre>
+  <DatGui v-model:open="open">
+    <DatBoolean label="Some Bool" v-model="someBool" />
+    <DatButton label="Increment" @click="clickCount++" />
+    <DatColor label="Color" v-model="color" />
+    <DatFolder label="Folder" v-model:open="folderOpen">
+      <DatBoolean label="Some Bool" v-model="someBool" />
+      <DatButton label="Increment" @click="clickCount++" />
+      <DatColor label="Color" v-model="color" />
+    </DatFolder>
+    <DatNumber label="Some Number" v-model="someNumber" :min="0" :max="100" :step="5" />
+    <DatNumber label="Another Number" v-model="anotherNumber" />
+    <DatSelect label="Some choice" v-model="someChoice" :items="ninjaTurtles" />
+    <DatString label="Some String" v-model="someString" />
+
+  </DatGui>
+</template>
 
 <style lang="scss">
 #app {
@@ -22,5 +77,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+pre {
+  text-align: left;
+  padding: 0 calc(50% - 100px);
+  max-width: 200px;
 }
 </style>
