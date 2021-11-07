@@ -5,19 +5,17 @@
 > A Vue 3 port of [@cyrilf/vue-dat-gui](https://github.com/cyrilf/vue-dat-gui), which is a Vue.js port of the popular [dat.GUI](https://github.com/dataarts/dat.gui) library.
 
 ## Install
-
 ```
 npm install --save dat-gui-vue
 ```
 
 ## Usage
-
 ```js
-import { DatGui, DatString } from "dat-gui-vue";
+import { DatGui, DatString } from 'dat-gui-vue'
 
 export default {
-  components: { DatGui, DatString },
-};
+  components: { DatGui, DatString }
+}
 ```
 
 ```html
@@ -53,7 +51,9 @@ The main UI.
 A checkbox to indicate true or false
 
 ```html
-<DatBoolean v-model="someBoolean" label="My Boolean" />
+<DatBoolean
+  v-model="someBoolean"
+  label="My Boolean" />
 ```
 
 - `v-model` (Required) Bind to a boolean value in your model.
@@ -64,7 +64,9 @@ A checkbox to indicate true or false
 A button
 
 ```html
-<DatButton @click="onClick" label="Click me" />
+<DatButton
+  @click="onClick"
+  label="Click me" />
 ```
 
 - `@click` (Optional) Click handler
@@ -75,10 +77,12 @@ A button
 A color selector
 
 ```html
-<DatColor v-model="someColor" label="My Color" />
+<DatColor
+  v-model="someColor"
+  label="My Color" />
 ```
 
-- `v-model` (Required) Bind to a color string
+- `v-model` (Required) Bind to a color string 
 - `label` (Optional) Text to display as the label.
 
 ### DatFolder
@@ -86,7 +90,12 @@ A color selector
 A collapsible folder containing other controls
 
 ```html
-<DatFolder v-model:open label="My Folder"> ... other components ... </DatFolder>
+<DatFolder
+  v-model:open
+  label="My Folder"
+>
+  ... other components ...
+</DatFolder>
 ```
 
 - `v-model:open` (Optional) Bind to the open state of the folder.
@@ -94,7 +103,7 @@ A collapsible folder containing other controls
 
 ### DatNumber
 
-A number slider / input. If `min` and `max` are specified, then
+A number slider / input. If `min` and `max` are specified, then 
 a slider will be visible.
 
 ```html
@@ -120,7 +129,11 @@ a slider will be visible.
 A dropdown list. Options can be `[{name, value}, ...]` or `[value, ...]`.
 
 ```html
-<DatSelect v-model="someValue" :items="someArray" label="My Dropdown" />
+<DatSelect
+  v-model="someValue"
+  :items="someArray"
+  label="My Dropdown"
+/>
 ```
 
 - `v-model` (Required) Bind to a value
@@ -132,7 +145,10 @@ A dropdown list. Options can be `[{name, value}, ...]` or `[value, ...]`.
 A text input.
 
 ```html
-<DatString v-model="someString" :label="My String" />
+<DatString
+  v-model="someString"
+  :label="My String"
+/>
 ```
 
 - `v-model` (Required) Bind to a string

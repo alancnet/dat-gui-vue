@@ -1,12 +1,25 @@
 {
   "name": "dat-gui-vue",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "private": false,
   "main": "index.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
+  },
+  "keywords": [
+    "vue dat gui",
+    "vue",
+    "dat.gui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alancnet/dat-gui-vue"
+  },
+  "homepage": "https://github.com/alancnet/dat-gui-vue",
+  "bugs": {
+    "url": "https://github.com/alancnet/dat-gui-vue/issues"
   },
   "peerDependencies": {
     "core-js": "^3.6.5",
